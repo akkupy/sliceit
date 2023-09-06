@@ -46,7 +46,7 @@ shortlyBtn.addEventListener("click", (e) => {
           <p class="inserted-link">${inputValue}</p>
           <hr class="result-block-hr">
           <div class="results">
-            <p class="short-code">shrtco.de/${shortlyCode}</p>
+            <p class="short-code">sliceit.me/${shortlyCode}</p>
             <button class="copy-btn">Copy</button>
           </div>
           </div>`;
