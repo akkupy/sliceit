@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 
@@ -6,11 +7,11 @@
   <meta name="description" content="Shortly URL shortening API - Frontend Mentor">
   <meta name="keywords" content="Shortly URL shortening API, Frontend Mentor, API project">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="{% static 'images/favicon-32x32.png' %}">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
     integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg=="
     crossorigin="anonymous" referrerpolicy="no-referrer" />
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="{% static 'css/styles.css' %}">
 
   <title>Frontend Mentor | Shortly URL shortening API Challenge</title>
 </head>
@@ -19,7 +20,7 @@
   <!-- Header -->
   <nav>
     <!-- Header Icon -->
-    <img src="images/logo.svg" alt="Shortly">
+    <img src="{% static 'images/logo.svg' %}" alt="Shortly">
 
     <!-- Menu -->
     <section class="menu-section">
@@ -48,7 +49,7 @@
           on how your links are performing.</p>
         <a class="cyan-btn" href="" aria-hidden="true"> Get Started</a>
       </div>
-      <img src="images/illustration-working.svg" alt="" aria-hidden="true">
+      <img src="{% static 'images/illustration-working.svg' %}" alt="" aria-hidden="true">
     </article>
     <!-- Section 2 -->
     <form action="" class="section-2">
@@ -143,7 +144,7 @@
     </section>
   </footer>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script src="app.js"></script>
+  <script src="{% static 'js/app.js' %}"></script>
 </body>
 
 </html>
