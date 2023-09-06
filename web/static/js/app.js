@@ -36,7 +36,7 @@ shortlyBtn.addEventListener("click", (e) => {
     errorMsg.classList.remove("shown");
     shortlyInput.classList.remove("shown");
     //Passed Validation - init API
-    fetch(`https://api.shrtco.de/v2/shorten?url=` + inputValue)
+    fetch(`http://127.0.0.1:8000/api/slice/?url=` + inputValue)
       .then((response) => response.json())
       .then((response) => {
         if (response.ok) {
