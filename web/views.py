@@ -11,5 +11,5 @@ def forwarder(request,code):
         data = Link.objects.filter(code=code).values()
         return redirect(data[0]['target_url'])
     else:
-        render(request,'404.html')
+        return render(request,'404.html')
         
