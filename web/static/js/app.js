@@ -1,6 +1,7 @@
 "use strict";
 
-const shortlyInput = document.querySelector(".url-input");
+const SliceitInput = document.querySelector(".url-input");
+const SliceitBackInput = document.querySelector(".back-input");
 const shortlyBtn = document.querySelector(".url-button");
 const parentNode = document.querySelector(".search-result-block");
 const errorMsg = document.querySelector(".error-msg");
@@ -26,17 +27,18 @@ function urlValidation(defaultUrl) {
 // URL Submission Click Event
 shortlyBtn.addEventListener("click", (e) => {
   e.preventDefault();
-  let inputValue = shortlyInput.value;
+  let inputValue = SliceitInput.value;
+  let backValue = SliceitBackInput.value;
   //URL Validation
   if (!urlValidation(inputValue)) {
     errorMsg.classList.add("shown");
-    shortlyInput.classList.add("shown");
+   SliceitInput.classList.add("shown");
     errorMsg.innerHTML = "Please enter a link";
   } else {
     errorMsg.classList.remove("shown");
-    shortlyInput.classList.remove("shown");
+   SliceitInput.classList.remove("shown");
     //Passed Validation - init API
-    fetch(`http://127.0.0.1:8000/api/slice/?url=` + inputValue)
+    fetch(`http://127.0.0.1:8000/api/slice/?url=` + inputValue + '&backhalf=' + backValue)
       .then((response) => response.json())
       .then((response) => {
         if (response.ok) {
@@ -101,7 +103,7 @@ sectionThree.addEventListener("click", (e) => {
   if (e.target.classList.value === resetResults.classList.value) {
     sessionStorage.clear();
     parentNode.innerHTML = "";
-    shortlyInput.value = "";
+   SliceitInput.value = "";
     resultStorage = [];
     resetResults.classList.remove("active");
   }

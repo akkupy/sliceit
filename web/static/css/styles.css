@@ -204,7 +204,13 @@ h1 {
   width: 72%;
 }
 
+
 .url-input.shown {
+  border-color: var(--red);
+  border-width: 4px;
+}
+
+.back-input.shown {
   border-color: var(--red);
   border-width: 4px;
 }
@@ -212,6 +218,11 @@ h1 {
 .url-input.shown::placeholder {
   color: var(--red);
 }
+
+.back-input.shown::placeholder {
+  color: var(--red);
+}
+
 .url-input {
   border-radius: 10px;
   border-color: transparent;
@@ -221,7 +232,25 @@ h1 {
   cursor: text;
   color: var(--gray);
 }
+
+.back-input {
+  border-radius: 10px;
+  border-color: transparent;
+  font-size: 1.1rem;
+  font-weight: 500;
+  padding: 14px;
+  cursor: text;
+  color: var(--gray);
+}
+
 .url-input::placeholder {
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: var(--gray);
+}
+
+
+.back-input::placeholder {
   font-size: 1.1rem;
   font-weight: 500;
   color: var(--gray);

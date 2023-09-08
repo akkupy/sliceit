@@ -15,6 +15,7 @@ BASE_URL = environ.get('BASE_URL')
 @api_view(['GET'])
 def slice(request):
     url = request.GET.get('url')
+    print(request.GET.get('backhalf'))
     if not validators.url(url):
         return Response(status=status.HTTP_400_BAD_REQUEST)
     chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz"
