@@ -15,17 +15,21 @@ BASE_URL = environ.get('BASE_URL')
 @api_view(['GET'])
 def slice(request):
     url = request.GET.get('url')
-    print(request.GET.get('backhalf'))
+    backHalf = request.GET.get('backhalf')
     if not validators.url(url):
         return Response(status=status.HTTP_400_BAD_REQUEST)
     chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz"
-    code = "".join(secrets.choice(chars) for _ in range(5))
+    if backHalf == '':
+        code = "".join(secrets.choice(chars) for _ in range(6))
+    else:
+        code = backHalf
     unique_code = Link.objects.filter(code=code).exists()
     if unique_code:
         json = {
-            'ok' : 'false',
+            'stat' : 'false',
+            'result' : ''
         }
-        return Response(json,status=status.HTTP_406_NOT_ACCEPTABLE)
+        return Response(json,status=status.HTTP_200_OK)
     else:
         data = Link(code=code)
         data.short_url = BASE_URL+'/'+code
@@ -35,7 +39,7 @@ def slice(request):
         data.clicks = 0
         data.save()
         json = {
-            'ok' : 'true',
+            'stat' : 'true',
             'result' : {
                 'code' : BASE_URL+'/'+code,
             }
