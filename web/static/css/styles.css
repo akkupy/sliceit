@@ -185,7 +185,7 @@ h1 {
   height: 20rem;
   max-height: 100%;
   background-color: var(--dark-violet);
-  background-image: url("images/bg-shorten-desktop.svg");
+  background-image: url("/static/images/bg-shorten-desktop.svg"); 
   background-size: cover;
   background-repeat: no-repeat;
   border-radius: 15px;
