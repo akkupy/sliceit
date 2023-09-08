@@ -39,7 +39,7 @@ shortlyBtn.addEventListener("click", (e) => {
     errorMsg.classList.remove("shown");
    SliceitInput.classList.remove("shown");
     //Passed Validation - init API
-    fetch(`https://sliceit.me/api/slice/?url=` + inputValue + '&backhalf=' + backValue)
+    fetch(`https://sliceit.me/api/slice/?backhalf=` + backValue + `&url=` + inputValue)
       .then((response) => response.json())
       .then((response) => { 
         if (response.stat == 'false')  {
