@@ -5,6 +5,7 @@ const SliceitBackInput = document.querySelector(".back-input");
 const shortlyBtn = document.querySelector(".url-button");
 const parentNode = document.querySelector(".search-result-block");
 const errorMsg = document.querySelector(".error-msg");
+const errorMsg1 = document.querySelector(".error-msg1");
 const resetResults = document.querySelector(".reset-results");
 const sectionThree = document.querySelector(".section-3");
 
@@ -40,8 +41,15 @@ shortlyBtn.addEventListener("click", (e) => {
     //Passed Validation - init API
     fetch(`http://127.0.0.1:8000/api/slice/?url=` + inputValue + '&backhalf=' + backValue)
       .then((response) => response.json())
-      .then((response) => {
-        if (response.ok) {
+      .then((response) => { 
+        if (response.stat == 'false')  {
+          errorMsg1.classList.add("shown");
+          SliceitBackInput.classList.add("shown");
+          errorMsg1.innerHTML = "Back Half is used.";
+        }
+        else {
+          errorMsg1.classList.remove("shown");
+          SliceitBackInput.classList.remove("shown");
           let shortlyCode = response.result.code;
 
           resultSkeleton = `<div class="result">
@@ -104,6 +112,7 @@ sectionThree.addEventListener("click", (e) => {
     sessionStorage.clear();
     parentNode.innerHTML = "";
    SliceitInput.value = "";
+   SliceitBackInput.value = "";
     resultStorage = [];
     resetResults.classList.remove("active");
   }

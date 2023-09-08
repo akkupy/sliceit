@@ -256,11 +256,13 @@ h1 {
   color: var(--gray);
 }
 
-.error-msg {
+.error-msg,
+.error-msg1 {
   display: none;
 }
 
-.error-msg.shown {
+.error-msg.shown,
+.error-msg1.shown {
   position: absolute;
   display: inline-block;
   margin-top: 3.5rem;
