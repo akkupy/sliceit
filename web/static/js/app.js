@@ -45,7 +45,7 @@ shortlyBtn.addEventListener("click", (e) => {
         if (response.stat == 'false')  {
           errorMsg1.classList.add("shown");
           SliceitBackInput.classList.add("shown");
-          errorMsg1.innerHTML = "Back Half is used.";
+          errorMsg1.innerHTML = "Back Half is already used.";
         }
         else {
           errorMsg1.classList.remove("shown");
