@@ -13,10 +13,14 @@
     crossorigin="anonymous" referrerpolicy="no-referrer" />
   <link rel="stylesheet" href="{% static 'css/styles.css' %}">
 
+  <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css" />
+
   <title>SliceIt</title>
 </head>
 
 <body>
+
+  <section class="home">
   <!-- Header -->
   <nav>
     <!-- Header Icon -->
@@ -29,14 +33,75 @@
         <li><a href="#feature">Features</a></li>
       </ul>
       <hr class="menu-hr">
-      <!-- Header Buttons >
+      <!-- Header Buttons -->
       <ul class="buttons-section">
-        <li><a class="gray-p" href="/">Login</a></li>
-        <li><a class="cyan-btn sign-up-btn" href="/">Sign Up</a></li>
-      </ul-->
+        <li><a class="button" id="form-open">Login</a></li>
+      </ul>
     </section>
     <i class="fa-solid fa-bars"></i>
   </nav>
+
+
+  <section class="home">
+    <div class="form_container">
+       <i class="uil uil-times form_close"></i>
+      <!-- Login From -->
+      <div class="form login_form">
+        <form action="#">
+          <h2>Login</h2>
+
+          <div class="input_box">
+            <input type="email" placeholder="Enter your email" required />
+            <i class="uil uil-envelope-alt email"></i>
+          </div>
+          <div class="input_box">
+            <input type="password" placeholder="Enter your password" required />
+            <i class="uil uil-lock password"></i>
+            <i class="uil uil-eye-slash pw_hide"></i>
+          </div>
+
+          <div class="option_field">
+            <span class="checkbox">
+              <input type="checkbox" id="check" />
+              <label for="check">Remember me</label>
+            </span>
+            <a href="#" class="forgot_pw">Forgot password?</a>
+          </div>
+
+          <button class="button">Login Now</button>
+
+          <div class="login_signup">Don't have an account? <a href="#" id="signup">Signup</a></div>
+        </form>
+      </div>
+
+      <!-- Signup From -->
+      <div class="form signup_form">
+        <form action="#">
+          <h2>Signup</h2>
+
+          <div class="input_box">
+            <input type="email" placeholder="Enter your email" required />
+            <i class="uil uil-envelope-alt email"></i>
+          </div>
+          <div class="input_box">
+            <input type="password" placeholder="Create password" required />
+            <i class="uil uil-lock password"></i>
+            <i class="uil uil-eye-slash pw_hide"></i>
+          </div>
+          <div class="input_box">
+            <input type="password" placeholder="Confirm password" required />
+            <i class="uil uil-lock password"></i>
+            <i class="uil uil-eye-slash pw_hide"></i>
+          </div>
+
+          <button class="button">Signup Now</button>
+
+          <div class="login_signup">Already have an account? <a href="#" id="login">Login</a></div>
+        </form>
+      </div>
+    </div>
+  </section>
+
   <main class="main-container">
     <!-- Section 1-->
     <article class="section-1">
@@ -110,7 +175,6 @@
     <article>
       
     </article>
-
     <section class="footer-menu">
       <!-- Footer Menu -->
       <article>
@@ -146,8 +210,10 @@
       </article>
     </section>
   </footer>
+  
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="{% static 'js/app.js' %}"></script>
+</section>
 </body>
 
 </html>
