@@ -767,16 +767,22 @@ footer {
 
 
   #profileLinks {
-    overflow-x: auto;
-    display: block;
+    table-layout: fixed;
     font-family: Arial, Helvetica, sans-serif;
     border-collapse: collapse;
     width: 80%;
+    word-wrap: break-word;
   }
   
   #profileLinks td, #profileLinks th {
     border: 1px solid #ddd;
     padding: 13px;
+  }
+
+  #profileLinks th {
+    border: 1px solid #ddd;
+    padding: 13px;
+    width:30%
   }
   
   #profileLinks tr:nth-child(even){background-color: #f2f2f2;}
@@ -961,9 +967,11 @@ footer {
 
 
 #profileLinks {
+  table-layout: fixed;
   font-family: Arial, Helvetica, sans-serif;
   border-collapse: collapse;
   width: 80%;
+  word-wrap: break-word;
 }
 
 #profileLinks td, #profileLinks th {
@@ -981,4 +989,12 @@ footer {
   text-align: left;
   background-color: var(--cyan);
   color: white;
+}
+
+#table_short {
+  width: 30%;
+}
+
+#table_click {
+  width: 10%;
 }
