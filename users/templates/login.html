@@ -18,9 +18,9 @@
   <title>SliceIt</title>
 </head>
 
-<body>
+<body onload="disableScroll()">
 
-  <section class="home">
+  <section class="home show">
   <!-- Header -->
   <nav>
     <!-- Header Icon -->
@@ -50,6 +50,11 @@
         <form action="/auth/login/" method="post">
           {% csrf_token %}
           <h2>Login</h2>
+          <div>
+            {% if error %}
+              <p style="text-align: center; color: red;">{{error}}</p>
+            {% endif %}
+          </div>
 
           <div class="input_box">
             <input type="email" name="email" placeholder="Enter your email" required />
@@ -218,7 +223,7 @@
   </footer>
   
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script src="{% static 'js/app.js' %}"></script>
+  <script src="{% static 'js/script.js' %}"></script>
 </section>
 </body>
 

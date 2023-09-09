@@ -165,6 +165,7 @@ const formOpenBtn = document.querySelector("#form-open"),
   loginBtn = document.querySelector("#login"),
   pwShowHide = document.querySelectorAll(".pw_hide");
 
+
 formOpenBtn.addEventListener("click", disableScroll);
 formCloseBtn.addEventListener("click", enableScroll);
 
@@ -221,7 +222,7 @@ var wheelEvent = 'onwheel' in document.createElement('div') ? 'wheel' : 'mousewh
 
 // call this to Disable
 function disableScroll() {
-  home.classList.add("show")
+  home.classList.add("show");
   window.addEventListener('DOMMouseScroll', preventDefault, false); // older FF
   window.addEventListener(wheelEvent, preventDefault, wheelOpt); // modern desktop
   window.addEventListener('touchmove', preventDefault, wheelOpt); // mobile
@@ -230,11 +231,12 @@ function disableScroll() {
 
 // call this to Enable
 function enableScroll() {
-  home.classList.remove("show")
+  home.classList.remove("show");
   window.removeEventListener('DOMMouseScroll', preventDefault, false);
   window.removeEventListener(wheelEvent, preventDefault, wheelOpt); 
   window.removeEventListener('touchmove', preventDefault, wheelOpt);
   window.removeEventListener('keydown', preventDefaultForScrollKeys, false);
+  window.location.href = 'https://sliceit.me';
 }
 
 /* password validation */
@@ -260,8 +262,3 @@ password1.addEventListener("input", (event) => {
     password1.setCustomValidity("");
   }
 });
-
-
-function refresher() {
-  location.reload();
-}

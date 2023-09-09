@@ -30,90 +30,23 @@
     <section class="menu-section">
 
       <ul class="links-section gray-p">
-        <li><a href="#feature">Features</a></li>
+        <li><a href="#feature">Link Panel</a></li>
       </ul>
       <hr class="menu-hr">
       <!-- Header Buttons -->
       <ul class="buttons-section">
-        <li><a class="button" id="form-open">Login</a></li>
+        <li><a class="button" href="/auth/logout">Logout</a></li>
       </ul>
     </section>
     <i class="fa-solid fa-bars"></i>
   </nav>
-
-
-  <section class="home">
-    <div class="form_container">
-       <i class="uil uil-times form_close"></i>
-      <!-- Login From -->
-      <div class="form login_form">
-        <form action="/auth/login/" method="post">
-          {% csrf_token %}
-          <h2>Login</h2>
-
-          <div class="input_box">
-            <input type="email" name="email" placeholder="Enter your email" required />
-            <i class="uil uil-envelope-alt email"></i>
-          </div>
-          <div class="input_box">
-            <input type="password" name="password" placeholder="Enter your password" required />
-            <i class="uil uil-lock password"></i>
-            <i class="uil uil-eye-slash pw_hide"></i>
-          </div>
-
-          <div class="option_field">
-            <span class="checkbox">
-              <input type="checkbox" id="check" />
-              <label for="check">Remember me</label>
-            </span>
-            <a href="#" class="forgot_pw">Forgot password?</a>
-          </div>
-
-          <button class="button">Login Now</button>
-
-          <div class="login_signup">Don't have an account? <a href="#" id="signup">Signup</a></div>
-        </form>
-      </div>
-
-      <!-- Signup From -->
-      <div class="form signup_form">
-        <form action="/auth/signup/" method="post">
-          {% csrf_token %}
-          <h2>Signup</h2>
-
-          <div class="input_box">
-            <input type="text" name="name" placeholder="Enter your name." required />
-            <i class="uil uil-user email"></i>
-          </div>
-          <div class="input_box">
-            <input type="email" name="email" placeholder="Enter your email" required />
-            <i class="uil uil-envelope-alt email"></i>
-          </div>
-          <div class="input_box">
-            <input type="password" name="password" id="password" placeholder="Create password" required />
-            <i class="uil uil-lock password"></i>
-            <i class="uil uil-eye-slash pw_hide"></i>
-          </div>
-          <div class="input_box">
-            <input type="password" id="password1" placeholder="Confirm password" required />
-            <i class="uil uil-lock password"></i>
-            <i class="uil uil-eye-slash pw_hide"></i>
-          </div>
-
-          <button class="button">Signup Now</button>
-
-          <div class="login_signup">Already have an account? <a href="#" id="login">Login</a></div>
-        </form>
-      </div>
-    </div>
-  </section>
 
   <main class="main-container">
     <!-- Section 1-->
     <article class="section-1">
 
       <div class="main-info">
-        <h1>Slice your links on a click</h1>
+        <h1>Welcome , {{request.user.name}}</h1>
         <p class="gray-p">Shorten and track your links in a simpler way.</p>
         <a class="cyan-btn" href="#slice" aria-hidden="true"> Get Started</a>
       </div>
@@ -144,30 +77,29 @@
       </button>
       <section class="search-result-block">
       </section>
-      <h2 id="feature"> Advanced Statistics</h2>
-      <p class="info">Track how your links are performing across the web with our
-        advanced statistics dashboard.</p>
-      <section class="section-3-blocks">
+      <h2 id="feature"> Your Short Links</h2>
+      <p class="info">Track how your links are performing!</p>
+        <table id="profileLinks">
+          <tr>
+            <th>Target Link</th>
+            <th id="table_short">Short Link</th>
+            <th id="table_click">Clicks</th>
+          </tr>
+          {% if linkData %}
+            {% for link in linkData %}
+              <tr>
+                <td>{{ link.target_url }}</td>
+                <td>{{ link.short_url }}</td>
+                <td>{{ link.clicks }}</td>
+              </tr>
+            {% endfor %}
+            {% else %}
+            <p style="color: red;"> No Links Yet. Create Some!</p>
+          {% endif %}
+          
+        </table>
+        <button class="button" onclick="refresher()"> Refresh</button>
 
-        <div>
-          <img src="{% static 'images/icon-brand-recognition.svg' %}" alt="" aria-hidden="true">
-          <h3> Brand Recognition</h3>
-          <p class="gray-p">Boost your brand recognition with each click. Generic links don’t
-            mean a thing. Branded links help instil confidence in your content.</p>
-        </div>
-        <div>
-          <img src="{% static 'images/icon-detailed-records.svg' %}" alt="" aria-hidden="true">
-          <h3>Detailed Records</h3>
-          <p class="gray-p">Gain insights into who is clicking your links. Knowing when and where
-            people engage with your content helps inform better decisions.</p>
-        </div>
-        <div>
-          <img src="{% static 'images/icon-fully-customizable.svg' %}" alt="" aria-hidden="true">
-          <h3> Fully Customizable</h3>
-          <p class="gray-p"> Improve brand awareness and content discoverability through customizable
-            links, supercharging audience engagement.</p>
-        </div>
-      </section>
     </article>
     <!-- Section 4 -->
     <!--article class="section-4">
