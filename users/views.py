@@ -29,4 +29,4 @@ def signin(request):
                 login(request,user)
                 return redirect(reverse('profile'))
         else:
-            return render(request,'errorHome.html')
+            return render(request,'error.html')
