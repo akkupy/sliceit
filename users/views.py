@@ -29,4 +29,11 @@ def signin(request):
                 login(request,user)
                 return redirect(reverse('profile'))
         else:
-            return render(request,'error.html')
+            error_message = {
+                'error' : 'Incorrect Email or Password !'
+            }
+            return render(request,'login.html',error_message)
+
+def signout(request):
+    logout(request)
+    return redirect(reverse('home'))
