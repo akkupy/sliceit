@@ -260,3 +260,8 @@ password1.addEventListener("input", (event) => {
     password1.setCustomValidity("");
   }
 });
+
+
+function refresher() {
+  location.reload();
+}

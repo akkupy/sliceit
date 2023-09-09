@@ -1,5 +1,6 @@
 from django.shortcuts import redirect,render
 from db.models import Link
+from django.contrib.auth.decorators import login_required
 # Create your views here.
 
 def home(request):
@@ -13,6 +14,10 @@ def forwarder(request,code):
     else:
         return render(request,'404.html')
         
-
+@login_required(login_url='home')
 def profile(request):
-    return render(request,'profile.html')
+    userData = Link.objects.filter(name=request.user.name).values()
+    context = {
+        'linkData' : userData,
+    }
+    return render(request,'profile.html',context)
