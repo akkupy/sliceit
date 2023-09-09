@@ -13,3 +13,6 @@ def forwarder(request,code):
     else:
         return render(request,'404.html')
         
+
+def data(request):
+    return render(request,'data.html')

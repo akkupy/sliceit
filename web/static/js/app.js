@@ -236,3 +236,27 @@ function enableScroll() {
   window.removeEventListener('touchmove', preventDefault, wheelOpt);
   window.removeEventListener('keydown', preventDefaultForScrollKeys, false);
 }
+
+/* password validation */
+
+const password = document.getElementById("password");
+const password1 = document.getElementById("password1");
+
+var lowerUpperNumberSpclLetters = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9])(?!.*\s).{8,15}$/;
+
+password.addEventListener("input", (event) => {
+  if (password.value.match(lowerUpperNumberSpclLetters)) {
+    password.setCustomValidity("");
+  } else {
+    password.setCustomValidity("Password should contain 8-15 characters and lowerCase,upperCase,numericals & special characters.");
+  }
+
+});
+
+password1.addEventListener("input", (event) => {
+  if (password1.value!=password.value) {
+    password1.setCustomValidity("Password Mismatch !");
+  } else {
+    password1.setCustomValidity("");
+  }
+});
