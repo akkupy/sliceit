@@ -7,21 +7,26 @@ from django.urls import reverse
 
 def signup(request):
     if request.method == "POST":
+        name = request.POST.get('name')
         email = request.POST.get('email')
         password = request.POST.get('password')
-        user = User.objects.create_user(email=email,password=password)
+        user = User.objects.create_user(name=name,email=email,password=password)
         user.save()
-        login(request,user)
-        return redirect('data')
+        user = authenticate(email=email,password=password)
+        if user:
+            if user.is_active:
+                login(request,user)
+                return redirect(reverse('profile'))
     
 
 def signin(request):
     if request.method == "POST":
-        form = AuthenticationForm(request.POST)
-        username = request.POST['username']
+        email = request.POST['email']
         password = request.POST['password']
-        user = authenticate(username=username,password=password)
+        user = authenticate(email=email,password=password)
         if user:
             if user.is_active:
                 login(request,user)
-                return redirect(reverse('data'))
+                return redirect(reverse('profile'))
+        else:
+            return render(request,'errorHome.html')

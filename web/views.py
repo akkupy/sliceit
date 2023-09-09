@@ -14,5 +14,5 @@ def forwarder(request,code):
         return render(request,'404.html')
         
 
-def data(request):
-    return render(request,'data.html')
+def profile(request):
+    return render(request,'profile.html')
