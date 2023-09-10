@@ -39,7 +39,7 @@
       <!-- Header Buttons -->
       <ul class="buttons-section">
         {% if request.user.is_authenticated %}
-          <li class="gray-p">{{request.user.email}}</li>
+          <li class="gray-p" id="mail">{{request.user.email}}</li>
           <li><a class="button" href="/auth/logout">Logout</a></li>
         {% else %}
           <li><a class="button" id="form-open">Login</a></li>

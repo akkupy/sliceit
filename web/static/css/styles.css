@@ -797,6 +797,13 @@ footer {
     color: white;
   }
 
+  /* Mail shortner */
+
+  #mail {
+    overflow: hidden;
+    text-overflow: ellipsis;;
+  }
+
 }
 
 /* Login Stuff */
