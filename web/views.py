@@ -18,7 +18,7 @@ def forwarder(request,code):
         
 @login_required(login_url='home')
 def profile(request):
-    userData = Link.objects.filter(name=request.user.name).values()
+    userData = Link.objects.filter(name=request.user.email).values()
     context = {
         'linkData' : userData,
     }

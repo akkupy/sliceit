@@ -1,6 +1,5 @@
 from django.shortcuts import render,redirect
 from .models import User
-from django.contrib.admin.forms import AuthenticationForm
 from django.contrib.auth import authenticate,login,logout
 from django.urls import reverse
 # Create your views here.
@@ -10,7 +9,13 @@ def signup(request):
         name = request.POST.get('name')
         email = request.POST.get('email')
         password = request.POST.get('password')
-        user = User.objects.create_user(name=name,email=email,password=password)
+        if User.objects.filter(email=email).exists():
+            error_message = {
+                'error' : 'Account already exists !'
+            }
+            return render(request,'login.html',error_message)
+        else:
+            user = User.objects.create_user(name=name,email=email,password=password)
         user.save()
         user = authenticate(email=email,password=password)
         if user:
