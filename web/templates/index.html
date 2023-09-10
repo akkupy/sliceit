@@ -35,7 +35,12 @@
       <hr class="menu-hr">
       <!-- Header Buttons -->
       <ul class="buttons-section">
-        <li><a class="button" id="form-open">Login</a></li>
+        {% if request.user.is_authenticated %}
+          <li>{{request.user.email}}</li>
+          <li><a class="button" href="/auth/logout">Logout</a></li>
+        {% else %}
+          <li><a class="button" id="form-open">Login</a></li>
+        {% endif %}
       </ul>
     </section>
     <i class="fa-solid fa-bars"></i>
