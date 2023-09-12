@@ -1,6 +1,6 @@
 # SliceIt !
 
-![SliceIt Landing](https://github.com/akkupy/sliceit/assets/69421964/8bfb48fe-4715-4849-a285-f2c637c0c202)
+![sliceit_home](https://github.com/akkupy/sliceit/assets/69421964/f4e4b891-6e79-4c92-92ce-4224bbcf56e7)
 
 A URL Shortner Made on Django Framework with Open API Support.
 
@@ -37,6 +37,11 @@ $ python manage.py runserver 0.0.0.0:8000
 
 ## Gallery
 
+![sliceit_home](https://github.com/akkupy/sliceit/assets/69421964/1e7f565b-8612-4303-9e42-c7021d20790b)
+
+![sliceit_login](https://github.com/akkupy/sliceit/assets/69421964/4f7555d6-519b-4e85-bbcf-45121475a4d3)
+
+![sliceit_dash](https://github.com/akkupy/sliceit/assets/69421964/cad9c0ee-2c7f-4b3e-b767-6be978768c55)
 
 ## Contact Me
  [![telegram](https://img.shields.io/badge/Akku-000000?style=for-the-badge&logo=telegram)](https://t.me/akkupy)
