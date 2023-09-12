@@ -43,14 +43,21 @@ shortlyBtn.addEventListener("click", (e) => {
       .then((response) => response.json())
       .then((response) => { 
         if (response.stat == 'false')  {
-          errorMsg1.classList.add("shown");
-          SliceitBackInput.classList.add("shown");
-          errorMsg1.innerHTML = "Back Half is already used.";
-        }
+          if (response.result=='invalid url'){
+            errorMsg.classList.add("shown");
+            SliceitInput.classList.add("shown");
+            errorMsg.innerHTML = "Recheck the Link.";
+          }
+          else {
+            errorMsg1.classList.add("shown");
+            SliceitBackInput.classList.add("shown");
+            errorMsg1.innerHTML = "Back Half is already used.";
+          }
+      }
         else {
           errorMsg1.classList.remove("shown");
           SliceitBackInput.classList.remove("shown");
-          let shortlyCode = response.result.code;
+          let shortlyCode = response.result.short_url;
 
           resultSkeleton = `<div class="result">
           <p class="inserted-link">${inputValue}</p>
