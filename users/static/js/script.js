@@ -262,3 +262,13 @@ password1.addEventListener("input", (event) => {
     password1.setCustomValidity("");
   }
 });
+
+
+
+/* Disable Button On Click */
+
+function disableButton(val,idz) {
+  var btn = document.getElementById(idz);
+  btn.disabled = true;
+  btn.innerText = val;
+}

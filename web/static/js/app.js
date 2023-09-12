@@ -270,6 +270,8 @@ function refresher() {
 /* Delete Button */
 
 function deleteBtn(val) {
+  document.getElementById(val).style.backgroundColor= '#e70f0f';
+  document.getElementById(val).style.color= '#ffffff';
   fetch(`http://127.0.0.1:8000/api/remove/?code=` + val)
       .then((response) => response.json())
       .then((response) => { 
@@ -278,4 +280,13 @@ function deleteBtn(val) {
         }
       }
   )
+}
+
+
+/* Disable Button On Click */
+
+function disableButton(val,idz) {
+  var btn = document.getElementById(idz);
+  btn.disabled = true;
+  btn.innerText = val;
 }
