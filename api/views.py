@@ -32,7 +32,7 @@ def slice(request):
         return Response(json,status=status.HTTP_200_OK)
     else:
         if request.user.is_anonymous:
-            name = 'anonymous'
+            name = 'anonymous@akkupy.me'
         else:
             name = request.user.email
         data = Link(code=code)
