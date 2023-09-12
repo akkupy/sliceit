@@ -46,7 +46,10 @@ def slice(request):
         json = {
             'stat' : 'true',
             'result' : {
-                'code' : BASE_URL+'/'+code,
+                'code'      : code,
+                'short_url' : BASE_URL+'/'+code,
+                'full_short_url' : 'https://'+BASE_URL+'/'+code,
+                'target_url' : url,
             }
         }
         return Response(json,status=status.HTTP_200_OK)
