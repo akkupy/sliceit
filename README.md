@@ -13,6 +13,105 @@ Visit the site at https://sliceit.me
 * Custom Back-Half Support.
 * Simple UI.
 
+## API Documentation
+
+### Slice a Link [GET Request].
+
+```
+https://sliceit.me/api/slice/
+```
+#### Query Params
+
+* backhalf - The Back-Half part of the URL after the / .
+
+    eg:sliceit.me/akash
+
+* url - URL that is needed to be shortened.
+
+EXAMPLE :
+
+```
+https://sliceit.me/api/slice/?backhalf=akash&url=https://akkupy.me
+```
+
+OUTPUT :
+
+```json
+{
+    "stat": "true",
+    "result": {
+        "code": "akash",
+        "short_url": "sliceit.me/akash",
+        "full_short_url": "https://sliceit.me/akash",
+        "target_url": "https://akkupy.me"
+    }
+}
+```
+ERRORS :
+
+* Backhalf Already Used.
+
+```json
+{
+    "stat": "false",
+    "result": "backhalf already used."
+}
+```
+* Invalid URL
+
+```json
+{
+    "stat": "false",
+    "result": "invalid url"
+}
+```
+
+### Delete a Link [GET Request].
+
+```
+https://sliceit.me/api/remove/
+```
+
+#### Query Params
+
+* code - The code returned during slicing AKA Back-Half.
+
+    eg:sliceit.me/akash -> code is akash
+
+
+EXAMPLE :
+
+```
+https://sliceit.me/api/remove/?code=akash
+```
+
+OUTPUT :
+
+```json
+{
+    "stat": "true",
+    "result": "link deleted"
+}
+```
+ERRORS :
+
+* Invalid Code.
+
+```json
+{
+    "stat": "false",
+    "result": "invalid"
+}
+```
+
+* Trying to delete User Authenticated Link/Code.
+
+```json
+{
+    "stat": "false",
+    "result": "forbidden"
+}
+```
 ## Local Development
 
 ### Fork the Repository And Clone it
