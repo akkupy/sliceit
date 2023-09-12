@@ -17,7 +17,11 @@ def slice(request):
     url = request.GET.get('url')
     backHalf = request.GET.get('backhalf')
     if not validators.url(url):
-        return Response(status=status.HTTP_400_BAD_REQUEST)
+        json = {
+            'stat' : 'false',
+            'result' : 'invalid url'
+        }
+        return Response(json,status=status.HTTP_200_OK)
     chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz"
     if backHalf == '':
         code = "".join(secrets.choice(chars) for _ in range(6))
@@ -27,7 +31,7 @@ def slice(request):
     if unique_code:
         json = {
             'stat' : 'false',
-            'result' : ''
+            'result' : 'backhalf already used.'
         }
         return Response(json,status=status.HTTP_200_OK)
     else:
@@ -58,9 +62,26 @@ def slice(request):
 @api_view(['GET'])
 def remove(request):
     code = request.GET.get('code')
-    deleteElement = Link.objects.get(code=code)
-    deleteElement.delete()
-    json = {
-            'stat' : 'true',
-        }
+    try:
+        deleteElement = Link.objects.get(code=code)
+        if request.user.is_anonymous:
+            name = 'anonymous@akkupy.me'
+        else:
+            name = request.user.email
+        if deleteElement.name == name:
+            deleteElement.delete()
+            json = {
+                'stat' : 'true',
+                'result' : 'link deleted'
+            }
+        else:
+            json = {
+                'stat' : 'false',
+                'result' : 'forbidden'
+            }
+    except:
+        json = {
+                'stat' : 'false',
+                'result' : 'invalid'
+            }
     return Response(json,status=status.HTTP_200_OK)
