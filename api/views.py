@@ -51,3 +51,13 @@ def slice(request):
         }
         return Response(json,status=status.HTTP_200_OK)
     
+
+@api_view(['GET'])
+def remove(request):
+    code = request.GET.get('code')
+    deleteElement = Link.objects.get(code=code)
+    deleteElement.delete()
+    json = {
+            'stat' : 'true',
+        }
+    return Response(json,status=status.HTTP_200_OK)
