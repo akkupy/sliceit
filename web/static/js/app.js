@@ -116,7 +116,7 @@ sectionThree.addEventListener("click", (e) => {
     resultStorage = [];
     resetResults.classList.remove("active");
   }
-  else sectionThree.removeEventListener("click");
+  else sectionThree.removeEventListener("click",null);
 
 })
 
@@ -264,4 +264,18 @@ password1.addEventListener("input", (event) => {
 
 function refresher() {
   location.reload();
+}
+
+
+/* Delete Button */
+
+function deleteBtn(val) {
+  fetch(`https://sliceit.me/api/remove/?code=` + val)
+      .then((response) => response.json())
+      .then((response) => { 
+        if (response.stat)  {
+          location.reload();
+        }
+      }
+  )
 }
