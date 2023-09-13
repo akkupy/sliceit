@@ -28,10 +28,15 @@ def signin(request):
     if request.method == "POST":
         email = request.POST['email']
         password = request.POST['password']
+        remember_me = request.POST['remember_me']
         user = authenticate(email=email,password=password)
         if user:
             if user.is_active:
                 login(request,user)
+                if remember_me == 'True':
+                    request.session.set_expiry(604800)
+                else:
+                    request.session.set_expiry(0)
                 return redirect(reverse('profile'))
         else:
             error_message = {
