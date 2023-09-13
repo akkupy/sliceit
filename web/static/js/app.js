@@ -296,4 +296,7 @@ function disableButton(val,idz) {
   var btn = document.getElementById(idz);
   btn.disabled = true;
   btn.innerText = val;
+  if(document.getElementById("check").checked) {
+    document.getElementById("checkHidden").disabled = true;
+  }
 }
