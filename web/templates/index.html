@@ -127,7 +127,7 @@
         {% if request.user.is_authenticated %}
         <a class="cyan-btn" href="/profile/" aria-hidden="true">View Profile</a>
         {% else %}
-        <a class="cyan-btn" id="form-open1" aria-hidden="true"> Get Started</a>
+        <a class="cyan-btn" href="#slice" aria-hidden="true"> Get Started</a>
         {% endif %}
       </div>
       <img src="{% static 'images/illustration-working.svg' %}" alt="" aria-hidden="true">
