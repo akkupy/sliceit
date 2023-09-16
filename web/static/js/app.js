@@ -165,6 +165,7 @@ mainElement.addEventListener("click", function () {
 /* Login Stuff */
 
 const formOpenBtn = document.querySelector("#form-open"),
+  formOpenBtn1 = document.querySelector("#form-open1"),
   home = document.querySelector(".home"),
   formContainer = document.querySelector(".form_container"),
   formCloseBtn = document.querySelector(".form_close"),
@@ -173,6 +174,7 @@ const formOpenBtn = document.querySelector("#form-open"),
   pwShowHide = document.querySelectorAll(".pw_hide");
 
 formOpenBtn.addEventListener("click", disableScroll);
+formOpenBtn1.addEventListener("click", disableScroll);
 formCloseBtn.addEventListener("click", enableScroll);
 
 pwShowHide.forEach((icon) => {
