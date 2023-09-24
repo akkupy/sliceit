@@ -21,7 +21,7 @@
       },
       {
         "src": "/sitemap.xml",
-        "dest": "sitemap.xml"
+        "dest": "/static/sitemap.xml"
       },
       {
         "src": "/(.*)",
