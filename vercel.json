@@ -24,6 +24,10 @@
         "dest": "/static/robots.txt"
       },
       {
+        "src": "/site.webmanifest",
+        "dest": "/static/site.webmanifest"
+      },
+      {
         "src": "/sitemap.xml",
         "dest": "/static/sitemap.xml"
       },
