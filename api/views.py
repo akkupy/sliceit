@@ -22,7 +22,7 @@ def slice(request):
             'result' : 'invalid url'
         }
         return Response(json,status=status.HTTP_200_OK)
-    chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz"
+    chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz1234567890"
     if backHalf == '':
         code = "".join(secrets.choice(chars) for _ in range(6))
     else:
